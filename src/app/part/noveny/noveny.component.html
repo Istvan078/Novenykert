@@ -1,0 +1,63 @@
+<!-- <p>{{novenyek|json}}</p> -->
+{{ujNoveny|json}}
+<div class="card">
+    <img [src]="ujNoveny.kepUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Új Növény</h5>
+        
+      <div class="form-floating mb-3 col">
+        <input [(ngModel)]="ujNoveny.megnevezes" type="text" class="form-control" id="floatingInput">
+        <label for="floatingInput">Megnevezés</label>
+    </div>
+
+    <div class="form-floating">
+        <textarea [(ngModel)]="ujNoveny.leiras" class="form-control"  id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Leírás</label>
+    </div>
+
+    <div class="form-floating mb-3 col">
+        <input [(ngModel)]="ujNoveny.kepUrl" type="text" class="form-control" id="kepUrl">
+        <label for="kepUrl">Képcím</label>
+    </div>
+
+    <div class="form-floating mb-3 col">
+        <input [(ngModel)]="ujNoveny.ar" type="number" class="form-control" id="ar">
+        <label for="ar">Ár</label>
+    </div>
+    <div class="col">
+        <button (click)="newNoveny()" type="button" class="btn btn-success">Hozzáadás</button>
+    </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+        {{oszlop}}
+    </div>
+    <div class="col">
+        Műveletek
+    </div>
+</div>
+
+<div *ngFor="let noveny of novenyek" class="row">
+
+    <div class="form-floating mb-3 col">
+        <input [(ngModel)]="noveny.megnevezes" type="text" class="form-control" id="floatingInput">
+        <label for="floatingInput">Megnevezés</label>
+    </div>
+
+    <div class="form-floating mb-3 col">
+        <input [(ngModel)]="noveny.kepUrl" type="text" class="form-control" id="kepUrl">
+        <label for="kepUrl">Képcím</label>
+    </div>
+
+    <div class="form-floating mb-3 col">
+        <input [(ngModel)]="noveny.ar" type="number" class="form-control" id="ar">
+        <label for="ar">Ár</label>
+    </div>
+    <div class="col">
+        <button (click)="updateNoveny(noveny.key, noveny)" type="button" class="btn btn-success">Ment</button>
+        <button (click)="deleteNoveny(noveny.key)" type="button" class="btn btn-danger">Töröl</button>
+    </div>
+</div>

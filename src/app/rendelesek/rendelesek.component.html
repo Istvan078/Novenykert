@@ -1,0 +1,14 @@
+<ng-container *ngIf="novenyek.length!=0">
+    <div *ngFor="let tetel of tetelek" class="row">
+        <div class="col">
+            {{keresNoveny(tetel.novenyKey).megnevezes}}
+        </div>
+        <div class="col">
+            {{tetel.db}} db
+        </div>
+
+        <div class="col">
+            {{keresNoveny(tetel.novenyKey).ar*tetel.db}} Ft
+        </div>
+    </div>
+</ng-container>

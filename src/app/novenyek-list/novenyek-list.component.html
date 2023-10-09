@@ -1,0 +1,28 @@
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Keresés: </span>
+    <input [(ngModel)]="keresoSzo" type="text" class="form-control">
+</div>
+
+<div class="row g-4">
+    <div *ngFor="let noveny of novenyek|filter:keresoSzo" class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+        <div class="card h-100">
+            <img [src]="noveny.kepUrl" class="card-img-top" alt="Növény kép">
+            <div class="card-body">
+              <h5 class="card-title">{{noveny.megnevezes}}</h5>
+              <p class="card-text">
+                {{noveny.leiras}}
+              </p>
+            </div>
+            <div class="card-footer">
+                <p class="card-text fw-bold">
+                    {{noveny.ar}} Ft
+                </p>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Db</span>
+                <input #db value="1" min="0" type="number" class="form-control">
+                <button (click)="ment(noveny.key, db.value)" [ngClass]="rendeltunkE(noveny.key)?'btn-warning':'btn-danger'" type="button" class="btn">{{rendeltunkE(noveny.key)?"Hozzáadás":"Módosítás"}}</button>
+            </div>
+        </div>
+    </div>
+</div>
