@@ -1,14 +1,27 @@
 <ng-container *ngIf="novenyek.length!=0">
     <div *ngFor="let tetel of tetelek" class="row">
         <div class="col">
-            {{keresNoveny(tetel.novenyKey).megnevezes}}
+            {{keresNoveny(tetel.megnevezes)}}
         </div>
         <div class="col">
             {{tetel.db}} db
         </div>
 
         <div class="col">
-            {{keresNoveny(tetel.novenyKey).ar*tetel.db}} Ft
+            {{keresNoveny(tetel.ar*tetel.db)}} Ft
         </div>
     </div>
 </ng-container>
+
+<div class="row">
+    <div *ngFor="let oszlop of oszlopok" class="col">{{oszlop}}
+    </div>
+    <div class="col">Műveletek</div>
+</div>
+    
+    <div *ngFor="let rendeles of rendelesek" class="row">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            {{rendeles[oszlop]}}
+        </div>
+        <div class="col"><button (click)="deleteTetel(rendeles.key)" type="button" class="btn btn-danger">Törlés</button></div>
+    </div>
