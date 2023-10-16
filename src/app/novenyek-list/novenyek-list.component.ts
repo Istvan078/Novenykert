@@ -36,7 +36,6 @@ export class NovenyekListComponent {
     let i = this.tetelek.findIndex(
       (tl:any)=>tl.novenyKey == novenyKey
     )
-
     return (i==-1) 
   }
 }

@@ -29,6 +29,7 @@ export class RendelesekComponent {
         key:c.payload.key, ...c.payload.val()}))))
     ).subscribe(adatok=>this.rendelesek = adatok)
     this.oszlopok= this.config.getRendelesOszlopok()
+    
   }
 
   keresNoveny(key:any){

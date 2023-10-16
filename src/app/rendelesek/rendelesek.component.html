@@ -1,14 +1,17 @@
 <ng-container *ngIf="novenyek.length!=0">
+    <h2>Rendelés véglegesítése</h2>
+    <input class="form-control" type="text" placeholder="Név">
+    <input class="form-control" type="text" placeholder="Cím">
     <div *ngFor="let tetel of tetelek" class="row">
         <div class="col">
-            {{keresNoveny(tetel.megnevezes)}}
+            {{keresNoveny(tetel.novenyKey).megnevezes}}
         </div>
         <div class="col">
             {{tetel.db}} db
         </div>
 
         <div class="col">
-            {{keresNoveny(tetel.ar*tetel.db)}} Ft
+            {{keresNoveny(tetel.novenyKey).ar*tetel.db}} Ft
         </div>
     </div>
 </ng-container>
@@ -25,3 +28,5 @@
         </div>
         <div class="col"><button (click)="deleteTetel(rendeles.key)" type="button" class="btn btn-danger">Törlés</button></div>
     </div>
+
+{{rendelesek|json}}

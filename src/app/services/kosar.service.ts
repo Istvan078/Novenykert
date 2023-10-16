@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class KosarService {
   tetelek:any=[]
-  constructor() { }
+  constructor(private base: BaseService) { }
 
   getTetelek(){
     return this.tetelek
@@ -25,6 +26,7 @@ export class KosarService {
     else this.tetelek[i].db = db
     
     console.log(this.tetelek)
+    this.base.getRendelesek().push(this.tetelek)
   }
 
   deleteTetel(tetel:any){
